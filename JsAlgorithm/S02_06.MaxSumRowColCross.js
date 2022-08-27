@@ -1,7 +1,7 @@
 function solution(a){ 
     let max = Number.MIN_SAFE_INTEGER;
-    let rowSum = 0; // ㅡ
-    let colSum = 0; // |
+    let rowSum = 0; // |
+    let colSum = 0; // ㅡ
     let crossSum1 = 0; // \
     let crossSum2 = 0; // /
     let length = a.length;
