@@ -42,7 +42,7 @@ function solution(n, edge) {
     graph[dest].push(src); // 양방향 그래프이기 때문에
   }
 
-  const distacne = Array.from(n + 1).fill(0);
+  const distance = Array.from(n + 1).fill(0);
   distance[1] = 1;
 
   // BFS
@@ -104,7 +104,7 @@ function solution(n, edge) {
     graph[dest].push(src); // 양방향 그래프이기 때문에
   }
 
-  const distacne = Array.from(n + 1).fill(0);
+  const distance = Array.from(n + 1).fill(0);
   distance[1] = 1;
 
   // BFS
