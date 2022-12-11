@@ -60,14 +60,14 @@ class MaxHeap {
   push(value) {
     this.heap.push(value); // 힙의 가장 마지막에 요소 추가
     let currentIndex = this.heap.length - 1;
-    let parrentNode = Math.floor(currentIndex / 2);
+    let parentIndex = Math.floor(currentIndex / 2);
 
     // 부모가 우선순위가 더 낮거나 루트가 아닐때 까지
     // 루프를 돌리며 부모와 자식의 순서를 바꿔줌
-    while (parrentIndex !== 0 && this.heap[parentIndex] < value) {
+    while (parentIndex !== 0 && this.heap[parentIndex] < value) {
       const temp = this.heap[parentIndex];
       this.heap[parentIndex] = value;
-      this.heap[currenIndex] = temp;
+      this.heap[currentIndex] = temp;
 
       currentIndex = parentIndex;
       parentIndex = Math.floor(currentIndex / 2);
@@ -86,26 +86,26 @@ class MaxHeap {
 
     // 하위 정점들이 현재 정점보다 우선순위가 낮을경우 반복 종료
     while (
-      this.heap[currenIndex] < this.heap[leftIndex] ||
+      this.heap[currentIndex] < this.heap[leftIndex] ||
       this.heap[currentIndex] < this.heap[rightIndex]
     ) {
       // 왼쪽 정점보다 오른쪽 정점이 우선순위가 더 높을경우
       // 오른쪽 정점과 변경
       if (this.heap[leftIndex] < this.heap[rightIndex]) {
         const temp = this.heap[currentIndex];
-        this.heap[currenIndex] = this.heap[rightIndex];
+        this.heap[currentIndex] = this.heap[rightIndex];
         this.heap[rightIndex] = temp;
         currentIndex = rightIndex;
       } else {
         // 왼쪽 정점과 변경
         const temp = this.heap[currentIndex];
-        this.heap[currenIndex] = this.heap[leftIndex];
+        this.heap[currentIndex] = this.heap[leftIndex];
         this.heap[leftIndex] = temp;
         currentIndex = leftIndex;
       }
       // 바꾼 정점에서 왼쪽 정점의 위치와 오른쪽 정점의 위치를 다시 구함
       leftIndex = currentIndex * 2;
-      rightIndex = currntIndex * 2 + 1;
+      rightIndex = currentIndex * 2 + 1;
     }
     return returnValue;
   }
